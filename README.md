@@ -10,9 +10,9 @@ Auto Benchmarks Each algo to get optimal speeds and benches throughout monitorin
 
 Fully automated / Set And Forget in Splitsniffin.bat/
 
-# Please edit SplitSniffin.bat
+# Please edit Hashsynminer_start.bat
 
-# SplitSniffCC and SplitSniffEWBF(please set these before you start miner in Splitsniff.bat)
+# SplitSniffCC and SplitSniffEWBF(please set these before you start miner in Hashsynminer_start.bat)
 
 Very Important... SplitsniffCC (ccminer) must use quotation and commas for each GPU selected (ie: '0,1,2,3,4,5,6,7')
 
