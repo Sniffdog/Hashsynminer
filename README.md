@@ -1,10 +1,10 @@
-# SniffDog-www.zpool.ca, www.MiningPoolHub.com, www.HashRefinery.com, and www.ahashpool.com 
+# Hashsynminer... Rig splitter and Multi address software program
 
-*This is Windows software designed for Nvidia 1080ti
+*This is Windows software designed for Nvidia 10 series cards
 
-*Malaware tried to steal Zcash miner...You may have to exempt sniffdog folder before running Splitsniffin.bat
+*Malaware tried to steal Zcash miner...You may have to exempt sniffdog folder before running Hashsynminer_start.bat
 
-Thanks to Arronsace and NemosMiner --SniffDog-- has been created to Monitor MiningPoolHub.com, Zpool.ca, HashRefinery.com, and Ahashpool.com mining pools in real-time in order to find the most profitable Algo /
+--Hashsynminer-- has been created to Monitor MiningPoolHub.com, Zpool.ca, HashRefinery.com, and Ahashpool.com mining pools in real-time in order to find the most profitable Algo /
 
 Auto Benchmarks Each algo to get optimal speeds and benches throughout monitoring 
 
@@ -18,17 +18,19 @@ Very Important... SplitsniffCC (ccminer) must use quotation and commas for each 
 
 Very Important... SplitSniffEWBF (equihash) must use quotation without commas for each GPU selected (ie: '0 1 2 3 4 5 6 7')
 
-# (This is how to set for auto convert to btc at Zpool.ca, Hashrefinery.com, and Ahashpool.com)
+# (This is an exampl of how to set for auto convert to btc at Zpool.ca, Hashrefinery.com, and Ahashpool.com)
 
 1) Place your Bitcoin address after -u in Splitsniffin.bat
 
 2) Passwordcurrency BTC
 
-2) Register at Multipool and input your -Username and -Workername to Splitsniffin.bat (your Workername will also be used at hashrefinery and at Zpool for identification of your rig). You must also setup at Miningpoolhub to autoswitch to Bitcoin and place your Bitcoin address in bitcoin tab
+2) Register at Multipool and input your -Username and -Workername to Splitsniffin.bat. You must also setup at Miningpoolhub to autoswitch to Bitcoin and place your Bitcoin address in bitcoin tab
+
+3) -RigName the name you want to call your mining at Ahashpool.com, Hashrefinery.com, and Zpool.ca
 
 # This is how to set for a different currency other than btc at Zpool.ca, Hashrefinery.com, and Ahashpool.com
 
-1) If you don't want to be paid in Bitcoin at Hashrefinery or Zpool you can choose -Passwordcurrency *Note( Make sure you add same currency wallet address in -u for the same -Passwordcurrency chosen. Auto default is BTC for a BTC wallet address)
+1) If you don't want to be paid in Bitcoin at Hashrefinery or Zpool you can choose -Passwordcurrency *Note( Make sure you add same currency wallet address in -Wallet for the same -Passwordcurrency chosen. Auto default is BTC for a BTC wallet address)
 
 # Price ticker btc/currency
 
@@ -36,7 +38,7 @@ Choose which Currency you would like bitcoin to be in and stats for that currenc
 
 # Algos to bench
 
-*It is very Important at this point to choose algos and then let everything bench first before moving onto pools, intervals, and delays
+*It is very Important at this point to choose algos and then let everything bench first before moving onto pools, intervals, and delays but if you want to just mine one pool...please remove the algo's that are not in that pool you wish to mine at...
 
 # Pools, Intervals, and Delays
 
