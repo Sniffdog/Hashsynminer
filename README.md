@@ -8,7 +8,7 @@
 
 Auto Benchmarks Each algo to get optimal speeds and benches throughout monitoring 
 
-Fully automated / Set And Forget in Splitsniffin.bat/
+Fully automated / Set And Forget in Hashsynminer_start.bat/
 
 # Please edit Hashsynminer_start.bat
 
@@ -20,9 +20,9 @@ Very Important... SplitSniffEWBF (equihash) must use quotation without commas fo
 
 # (This is an exampl of how to set for auto convert to btc at Zpool.ca, Hashrefinery.com, and Ahashpool.com)
 
-1) Place your Bitcoin address after -u in Splitsniffin.bat
+1) Place your Bitcoin address after -Wallet in Hashsynminer_start.bat.bat
 
-2) Passwordcurrency BTC
+2) -Passwordcurrency BTC
 
 2) Register at Multipool and input your -Username and -Workername to Splitsniffin.bat. You must also setup at Miningpoolhub to autoswitch to Bitcoin and place your Bitcoin address in bitcoin tab
 
@@ -50,8 +50,6 @@ Choose which Currency you would like bitcoin to be in and stats for that currenc
 
 Auto Downloads Miners /   
 
-Thank you to aaronsace for devoloping and maintaining "MultiPoolMiner" and Thank you nemosminer for maintaining "NemosMiner"
-
-This is a free project feel free to donate be much appreciated. Arronance btc address: 1MsrCoAt8qM53HUMsUxvy9gMj3QVbHLazH and nemosminer address: 1QGADhdMRpp9Pk5u5zG1TrHKRrdK5R81TE
+This is a free project feel free to donate be much appreciated. Arronance btc address: 1MsrCoAt8qM53HUMsUxvy9gMj3QVbHLazH and nemosminer address: 1QGADhdMRpp9Pk5u5zG1TrHKRrdK5R81TE Sniffdog address... in the Hashsynminer_start.bat :)
 
 Attached is readme file for more info
