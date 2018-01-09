@@ -78,7 +78,7 @@ $Algorithms | Get-Member -MemberType NoteProperty | Select -ExpandProperty Name 
     [PSCustomObject]@{
         Type = 'NVIDIA6'
         Path = $Path
-        Arguments = -Join ('-a ', $Algorithms.$_, ' -o stratum+tcp://$($Pools.', $_, '.Host):$($Pools.', $_, '.Port) -b 0.0.0.0:4074 -u $($Pools.', $_, '.User6)  -p $($Pools.', $_, '.Pass6)', $Optimizations.$_)
+        Arguments = -Join ('-a ', $Algorithms.$_, ' -o stratum+tcp://$($Pools.', $_, '.Host):$($Pools.', $_, '.Port) -b 0.0.0.0:4074 -u $($Pools.', $_, '.User6) -p $($Pools.', $_, '.Pass6)', $Optimizations.$_)
         HashRates = [PSCustomObject]@{$_ = -Join ('$($Stats.', $Name, '_', $_, '_HashRate.Week)')}
         API = 'Ccminer'
         Port = 4074
