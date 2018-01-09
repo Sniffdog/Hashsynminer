@@ -42,7 +42,7 @@ Choose which Currency you would like bitcoin to be in and stats for that currenc
 
 # Pools, Intervals, and Delays
 
-1) Then go back into Splitsniffin.bat and select which pool you wish to be at and interval(in seconds) you would like to recheck the pools to see if another algo is worth switching too (Default is 90 seconds)
+1) Then go back into Hashsynminer_start.bat and select which pool you wish to be at and interval(in seconds) you would like to recheck the pools to see if another algo is worth switching too (Default is 90 seconds)
 
 2) Delay(in seconds) for how long before miners switching from 1 instance of algo to another (Default is 1 second)
 
