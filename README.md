@@ -24,13 +24,13 @@ Very Important... SplitSniffEWBF (equihash) must use quotation without commas fo
 
 2) -Passwordcurrency BTC
 
-2) Register at Multipool and input your -Username and -Workername to Splitsniffin.bat. You must also setup at Miningpoolhub to autoswitch to Bitcoin and place your Bitcoin address in bitcoin tab
+2) Register at Multipool and input your -Username and -Workername to Hashsynminer_start.bat. You must also setup at Miningpoolhub to autoswitch to Bitcoin and place your Bitcoin address in bitcoin tab
 
 3) -RigName the name you want to call your mining at Ahashpool.com, Hashrefinery.com, and Zpool.ca
 
-# This is how to set for a different currency other than btc at Zpool.ca, Hashrefinery.com, and Ahashpool.com
+# This is how to set for a different currency other than btc at Zpool.ca, Hashrefinery.com
 
-1) If you don't want to be paid in Bitcoin at Hashrefinery or Zpool you can choose -Passwordcurrency *Note( Make sure you add same currency wallet address in -Wallet for the same -Passwordcurrency chosen. Auto default is BTC for a BTC wallet address)
+1) If you don't want to be paid in Bitcoin at Hashrefinery or Zpool you can choose -Passwordcurrency *Note( Make sure you add same currency wallet address in -Wallet for the same -Passwordcurrency chosen. Auto default is BTC for a BTC wallet address)... Please read each pool to see what the operators can pay you in altcoins and be diligent when not using BTC
 
 # Price ticker btc/currency
 
