@@ -58,7 +58,6 @@ Auto Downloads Miners /
 
 This is a free project feel free to donate be much appreciated. Arronance btc address: 1MsrCoAt8qM53HUMsUxvy9gMj3QVbHLazH and nemosminer address: 1QGADhdMRpp9Pk5u5zG1TrHKRrdK5R81TE Sniffdog address... in the Hashsynminer_start.bat :)
 
-Attached is readme file for more info
 
 If you have Windows 7, please update PowerShell:
 https://www.microsoft.com/en-us/download/details.aspx?id=50395
