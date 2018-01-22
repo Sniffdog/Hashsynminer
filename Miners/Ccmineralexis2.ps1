@@ -66,6 +66,7 @@ $Optimizations = [PSCustomObject]@{
     Lbry = ' -i 28 -d $SplitSniffCC2'
     C11 = ' -d $SplitSniffCC2'
     Nist5 = ' -i 25 -d $SplitSniffCC2'
+    Hsr = ' -d $SplitSniffCC2'
 }
 
 $Algorithms | Get-Member -MemberType NoteProperty | Select -ExpandProperty Name | ForEach {
