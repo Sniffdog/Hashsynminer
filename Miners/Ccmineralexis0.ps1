@@ -52,7 +52,7 @@ $Optimizations = [PSCustomObject]@{
     MyriadGroestl = ' -d $SplitSniffCC0'
     Groestl = ''
     Keccak = ' -d $SplitSniffCC0'
-    Scrypt = ''
+    Scrypt = ' -d $SplitSniffCC0'
     Bitcore = ''
     Blake2s = ' -d $SplitSniffCC0'
     Sib = ' -i 21 -d $SplitSniffCC0'
@@ -66,6 +66,7 @@ $Optimizations = [PSCustomObject]@{
     Lbry = ' -i 28 -d $SplitSniffCC0'
     C11 = ' -d $SplitSniffCC0'
     Nist5 = ' -i 25 -d $SplitSniffCC0'
+    Hsr = ' -d $SplitSniffCC0'
 }
 
 $Algorithms | Get-Member -MemberType NoteProperty | Select -ExpandProperty Name | ForEach {
