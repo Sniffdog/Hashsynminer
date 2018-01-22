@@ -1,5 +1,5 @@
 ﻿$Path = '.\Bin\NVIDIA-Alexis3\ccminer.exe'
-$Uri = 'https://github.com/nemosminer/ccminer-Alexis78/releases/download/ccminer-alexis78/ccminer-alexis78-ms2013-cuda7.5.7z'
+$Uri = 'http://ccminer.org/preview/ccminer-hsr-alexis-x86-cuda8.7z'
 
 $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 
@@ -18,8 +18,8 @@ $Algorithms = [PSCustomObject]@{
     X11 = 'x11'
     MyriadGroestl = 'myr-gr'
     #Groestl = 'groestl'
-    #Keccak = 'keccak'
-    #Scrypt = 'scrypt'
+    Keccak = 'keccak'
+    Scrypt = 'scrypt'
     #Bitcore = 'bitcore'
     Blake2s = 'blake2s'
     Sib = 'sib'
@@ -27,12 +27,13 @@ $Algorithms = [PSCustomObject]@{
     #Quark = 'quark'
     #Hmq1725 = 'hmq1725'
     Veltor = 'veltor'
-    #X11evo = 'x11evo'
+    X11evo = 'x11evo'
     #Timetravel = 'timetravel'
     Blakecoin = 'blakecoin'
     Lbry = 'lbry'
     C11 = 'c11'
     Nist5 = 'nist5'
+    Hsr = 'hsr'
 }
 
 $Optimizations = [PSCustomObject]@{
@@ -43,10 +44,10 @@ $Optimizations = [PSCustomObject]@{
     Sia = ''
     Yescrypt = ''
     BlakeVanilla = ''
-    Lyra2RE2 = ' -i 25 -d $SplitSniffCC3'
-    Skein = ' -d $SplitSniffCC3'
+    Lyra2RE2 = ' -i 24 -d $SplitSniffCC3'
+    Skein = ' -i 28 -d $SplitSniffCC3'
     Qubit = ''
-    NeoScrypt = ''
+    NeoScrypt = ' -i 15 -d $SplitSniffCC3'
     X11 = ' -d $SplitSniffCC3'
     MyriadGroestl = ' -d $SplitSniffCC3'
     Groestl = ''
@@ -54,17 +55,18 @@ $Optimizations = [PSCustomObject]@{
     Scrypt = ''
     Bitcore = ''
     Blake2s = ' -d $SplitSniffCC3'
-    Sib = ' -d $SplitSniffCC3'
+    Sib = ' -i 21 -d $SplitSniffCC3'
     X17 = ' -i 21.5 -d $SplitSniffCC3'
     Quark = ''
     Hmq1725 = ''
     Veltor = ' -d $SplitSniffCC3'
     X11evo = ''
-    Timetravel = ''
+    Timetravel = ' -i 25 -d $SplitSniffCC3'
     Blakecoin = ' -d $SplitSniffCC3'
     Lbry = ' -i 28 -d $SplitSniffCC3'
     C11 = ' -d $SplitSniffCC3'
     Nist5 = ' -i 25 -d $SplitSniffCC3'
+    Hsr = ' -d $SplitSniffCC3'
 }
 
 $Algorithms | Get-Member -MemberType NoteProperty | Select -ExpandProperty Name | ForEach {
