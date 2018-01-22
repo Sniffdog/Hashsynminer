@@ -59,12 +59,13 @@ $Optimizations = [PSCustomObject]@{
     Quark = ''
     Hmq1725 = ''
     Veltor = ' -d $SplitSniffCC4'
-    X11evo = ' -d $SplitSniffCC4'
+    X11evo = ' -i 21 -d $SplitSniffCC4'
     Timetravel = ' -i 25 -d $SplitSniffCC4'
     Blakecoin = ' -d $SplitSniffCC4'
     Lbry = ' -i 28 -d $SplitSniffCC4'
     C11 = ' -d $SplitSniffCC4'
     Nist5 = ' -i 25 -d $SplitSniffCC4'
+    Hsr = ' -d $SplitSniffCC4'
 }
 
 $Algorithms | Get-Member -MemberType NoteProperty | Select -ExpandProperty Name | ForEach {
