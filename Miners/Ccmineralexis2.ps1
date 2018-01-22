@@ -1,5 +1,5 @@
 ﻿$Path = '.\Bin\NVIDIA-Alexis2\ccminer.exe'
-$Uri = 'https://github.com/nemosminer/ccminer-Alexis78/releases/download/ccminer-alexis78/ccminer-alexis78-ms2013-cuda7.5.7z'
+$Uri = 'http://ccminer.org/preview/ccminer-hsr-alexis-x86-cuda8.7z'
 
 $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 
