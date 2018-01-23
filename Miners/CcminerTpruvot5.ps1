@@ -34,7 +34,7 @@ $Algorithms = [PSCustomObject]@{
     Jha = 'jha'
     Skunk = 'skunk'
     Tribus = 'tribus'
-    #Phi = 'phi'
+    Phi = 'phi'
     #Hsr = 'hsr'
 }
 
@@ -69,7 +69,7 @@ $Optimizations = [PSCustomObject]@{
     Jha = ' -d $SplitSniffCC5'
     Skunk = ' -d $SplitSniffCC5'
     Tribus = ' -d $SplitSniffCC5'
-    Phi = ' -d $SplitSniffCC5'
+    Phi = ' -i 23 -d $SplitSniffCC5'
     Hsr = ' -d $SplitSniffCC5'
     
 }
