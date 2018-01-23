@@ -64,7 +64,7 @@ $Optimizations = [PSCustomObject]@{
     Timetravel = ''
     Blakecoin = ' -d $SplitSniffCC7'
     Lbry = ' -i 28 -d $SplitSniffCC7'
-    C11 = ' -d $SplitSniffCC7'
+    C11 = ' -i 20 -d $SplitSniffCC7'
     Nist5 = ' -i 25 -d $SplitSniffCC7'
     Hsr = ' -d $SplitSniffCC7'
 }
