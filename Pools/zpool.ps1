@@ -68,6 +68,7 @@ $Zpool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | Selec
 	        Pass4 = "ID=$RigName,c=$Passwordcurrency4"
 	        Pass5 = "ID=$RigName,c=$Passwordcurrency5"
 	        Pass6 = "ID=$RigName,c=$Passwordcurrency6"
+		Pass7 = "ID=$RigName,c=$Passwordcurrency7"
             Location = $Location
             SSL = $false
         }
