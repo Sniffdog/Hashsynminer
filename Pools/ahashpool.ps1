@@ -64,6 +64,7 @@ $ahashpool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | S
 	        User4 = $Wallet4
 	        User5 = $Wallet5
 	        User6 = $Wallet6
+		User7 = $Wallet7
             Pass = "ID=$RigName,c=$Passwordcurrency"
             Pass1 = "ID=$RigName,c=$Passwordcurrency1"
 	        Pass2 = "ID=$RigName,c=$Passwordcurrency2"
