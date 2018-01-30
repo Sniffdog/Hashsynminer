@@ -1,7 +1,7 @@
 . .\Include.ps1
 
-$Path = ".\Bin\NVIDIA-Palgin6\ccminer.exe"
-$Uri = "https://github.com/krnlx/ccminer-xevan/releases/download/0.1/ccminer.exe"
+$Path = ".\Bin\NVIDIA-krnlx6\ccminer_x86.exe"
+$Uri = "https://github.com/Sniffdog/ccminer-xevan/releases/download/1.0/Ccminer_x86_krnlx.zip"
 
 $Commands = [PSCustomObject]@{
     #"bitcore" = "" #Bitcore
