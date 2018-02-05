@@ -1,8 +1,8 @@
 From Guytechie...
 
- Replace the GTR 40 with GTR 70. This way, if a single card fails, it would still detect as a failure and reboot. A single card
+ Replace the GTR 40 with GTR 70. This way, if a single card fails, it would still detect as a failure and reboot. 
  
- dying is 66.66% GPU usage, so would still be considered "Mining is working" if it was set to detect at 40.
+ A single card dying is 66.66% GPU usage, so would still be considered "Mining is working" if it was set to detect at 40.
  
  Also, you can increase time inside these bat files before registering a reboot (default is 30 seconds)
  
