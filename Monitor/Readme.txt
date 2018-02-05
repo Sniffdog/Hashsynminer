@@ -6,9 +6,9 @@ From Guytechie...
  
  Also, you can increase time inside these bat files before registering a reboot (default is 30 seconds)
  
- Also, another change - REM out these lines if you don't use nircmd.exe to take screenshot for logs. This also prevents the               
+ Also, another change - REM out these lines if you don't use nircmd.exe to take screenshot for logs. 
  
- creation of the Scr folder that's unneeded.
+ This also prevents the creation of the Scr folder that's unneeded.
 
  Oh, and I didn't realize to fix the id^x numbering until just now.
 
