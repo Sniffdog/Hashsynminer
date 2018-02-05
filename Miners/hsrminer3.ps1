@@ -11,7 +11,7 @@ $Algorithms = [PSCustomObject]@{
 
 $Optimizations = [PSCustomObject]@{
     
-    NeoScrypt = '-d $SplitSniffCC3'
+    NeoScrypt = ' -d $SplitSniffCC3'
     
 }
 $Algorithms | Get-Member -MemberType NoteProperty | Select -ExpandProperty Name | ForEach {
