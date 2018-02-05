@@ -11,7 +11,7 @@ $Algorithms = [PSCustomObject]@{
 
 $Optimizations = [PSCustomObject]@{
    
-    NeoScrypt = '-d $SplitSniffCC4'
+    NeoScrypt = ' -d $SplitSniffCC4'
    
 }
 
