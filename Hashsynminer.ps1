@@ -394,6 +394,10 @@ while($true)
              } 
          } 
      } 
+     
+     #Reduce Memory
+    Get-Job -State Completed | Remove-Job
+    [GC]::Collect()
 
 
     #Do nothing for a set Interval to allow miner to run 
