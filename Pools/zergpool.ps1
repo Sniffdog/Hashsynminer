@@ -27,6 +27,8 @@ $zergpool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | Se
     $zergpool_Port = $zergpool_Request.$_.port
     $zergpool_Algorithm = Get-Algorithm $zergpool_Request.$_.name
     $zergpool_Coin = $zergpool_Request.$_.coins
+    $zergpool_Fees = $zergpool_Request.$_.fees
+    $zergpool_Workers = $zergpool_Request.$_.workers
 
     $Divisor = 1000000
 	
@@ -49,15 +51,17 @@ $zergpool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | Se
     }
 
 			
-    if((Get-Stat -Name "$($Name)_$($zergpool_Algorithm)_Profit") -eq $null){$Stat = Set-Stat -Name "$($Name)_$($zergpool_Algorithm)_Profit" -Value ([Double]$zergpool_Request.$_.estimate_last24h/$Divisor)}
-    else{$Stat = Set-Stat -Name "$($Name)_$($zergpool_Algorithm)_Profit" -Value ([Double]$zergpool_Request.$_.estimate_current/$Divisor)}
+    if((Get-Stat -Name "$($Name)_$($zergpool_Algorithm)_Profit") -eq $null){$Stat = Set-Stat -Name "$($Name)_$($zergpool_Algorithm)_Profit" -Value ([Double]$zergpool_Request.$_.estimate_last24h/$Divisor*(1-($zergpool_request.$_.fees/100)))}
+    else{$Stat = Set-Stat -Name "$($Name)_$($zergpool_Algorithm)_Profit" -Value ([Double]$zergpool_Request.$_.estimate_current/$Divisor *(1-($zergpool_request.$_.fees/100)))}
 	
     if($Wallet)
     {
         [PSCustomObject]@{
             Algorithm = $zergpool_Algorithm
-            Info = "$zergpool_Coin-coin(s)"
+            Info = "$zergpool_Coin - Coin(s)"
             Price = $Stat.Live
+            Fees = $zergpool_Fees
+            Workers = $zergpool_Workers
             StablePrice = $Stat.Week
             MarginOfError = $Stat.Fluctuation
             Protocol = "stratum+tcp"

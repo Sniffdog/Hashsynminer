@@ -24,7 +24,7 @@ $Locations | ForEach {
     $MiningPoolHub_Request.return | ForEach {
         $Algorithm = $_.algo -replace "-"
         $Coin = (Get-Culture).TextInfo.ToTitleCase(($_.current_mining_coin -replace "-", " ")) -replace " "
-
+        $Fees = .9
         $Stat = Set-Stat -Name "$($Name)_$($Algorithm)_Profit" -Value ([decimal]$_.profit/1000000000)
         $Price = (($Stat.Live*(1-[Math]::Min($Stat.Day_Fluctuation,1)))+($Stat.Day*(0+[Math]::Min($Stat.Day_Fluctuation,1))))
         
@@ -32,6 +32,7 @@ $Locations | ForEach {
             Algorithm = $Algorithm
             Info = $Coin
             Price = $Price
+            Workers = 'N/A'
             StablePrice = $Stat.Week
             Protocol = 'stratum+tcp'
             Host = $_.all_host_list.split(";") | Sort -Descending {$_ -ilike "$Location*"} | Select -First 1

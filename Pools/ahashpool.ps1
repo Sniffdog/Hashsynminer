@@ -26,6 +26,8 @@ $ahashpool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | S
     $ahashpool_Port = $ahashpool_Request.$_.port
     $ahashpool_Algorithm = Get-Algorithm $ahashpool_Request.$_.name
     $ahashpool_Coin = $ahashpool_Request.$_.coins
+    $ahashpool_Fees = $ahashpool_Request.$_.fees
+    $ahashpool_Workers = $ahashpool_Request.$_.workers
 
     $Divisor = 1000000
 	
@@ -43,15 +45,17 @@ $ahashpool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | S
         "vanilla"{$Divisor *= 1000}
     }
 
-    if((Get-Stat -Name "$($Name)_$($ahashpool_Algorithm)_Profit") -eq $null){$Stat = Set-Stat -Name "$($Name)_$($ahashpool_Algorithm)_Profit" -Value ([Double]$ahashpool_Request.$_.estimate_last24h/$Divisor)}
-    else{$Stat = Set-Stat -Name "$($Name)_$($ahashpool_Algorithm)_Profit" -Value ([Double]$ahashpool_Request.$_.estimate_current/$Divisor)}
+    if((Get-Stat -Name "$($Name)_$($ahashpool_Algorithm)_Profit") -eq $null){$Stat = Set-Stat -Name "$($Name)_$($ahashpool_Algorithm)_Profit" -Value ([Double]$ahashpool_Request.$_.estimate_last24h/$Divisor*(1-($ahashpool_Request.$_.fees/100)))}
+    else{$Stat = Set-Stat -Name "$($Name)_$($ahashpool_Algorithm)_Profit" -Value ([Double]$ahashpool_Request.$_.estimate_current/$Divisor *(1-($ahashpool_Request.$_.fees/100)))}
 	
     if($Wallet)
     {
         [PSCustomObject]@{
             Algorithm = $ahashpool_Algorithm
-            Info = "$ahashpool_Coin-coin(s)"
+            Info = "$ahashpool_Coin - Coin(s)"
             Price = $Stat.Live
+            Fees = $ahashpool_Fees
+            Workers = $ahashpool_Workers
             StablePrice = $Stat.Week
             MarginOfError = $Stat.Fluctuation
             Protocol = "stratum+tcp"
