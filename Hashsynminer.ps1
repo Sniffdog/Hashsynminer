@@ -27,6 +27,8 @@
     [String]$API_Key = "", 
     [Parameter(Mandatory=$false)]
     [Int]$Interval = 90, #seconds before reading hash rate from miners
+    [Parameter(Mandatory=$false)] 
+    [Int]$StatsInterval = $null, #seconds of current active to gather hashrate if not gathered yet 
     [Parameter(Mandatory=$false)]
     [String]$Location = "US", #europe/us/asia
     [Parameter(Mandatory=$false)]
@@ -98,6 +100,26 @@
     [Parameter(Mandatory=$false)]
     [Int]$Delay = 1 #seconds before opening each miner
 )
+
+[System.Reflection.Assembly]::LoadWithPartialName("System.Windows.Forms")
+
+$caption = "I sniff an Italian..................."
+$message = "Do you want to stop the dynamic benchmark bullshit?"
+$yesNoButtons = 4
+
+
+if ([System.Windows.Forms.MessageBox]::Show($message, $caption, $yesNoButtons) -eq "NO") {
+write-host "Good Benchmarking commencing"
+$StatsInterval = 1
+
+}
+else {
+write-host "Sniffdog howls and stop the benchmarking"
+$StatsInterval = 1000
+}
+
+
+
 
 Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
 
@@ -190,7 +212,6 @@ while($true)
             if((Split-Path $Miner.URI -Leaf) -eq (Split-Path $Miner.Path -Leaf))
             {
                 New-Item (Split-Path $Miner.Path) -ItemType "Directory" | Out-Null
-                [Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls11 -bor [System.Net.SecurityProtocolType]::Tls12
                 Invoke-WebRequest $Miner.URI -OutFile $_.Path -UseBasicParsing
             }
             elseif(([IO.FileInfo](Split-Path $_.URI -Leaf)).Extension -eq '')
@@ -326,6 +347,7 @@ while($true)
                 Status = "Idle"
                 HashRate = 0
                 Benchmarked = 0
+                Hashrate_Gathered = ($_.HashRates.PSObject.Properties.Value -ne $null)
             }
         }
     }
@@ -458,7 +480,7 @@ while($true)
          Sleep ($Interval) 
      } 
 
-
+     
     #Save current hash rates
     $ActiveMinerPrograms | ForEach {
         if($_.Process -eq $null -or $_.Process.HasExited)
@@ -467,6 +489,9 @@ while($true)
         }
         else
         {
+             $WasActive = [math]::Round(((Get-Date)-$_.Process.StartTime).TotalSeconds) 
+             if ($WasActive -ge $StatsInterval) { 
+
             $_.HashRate = 0  
             $Miner_HashRates = $null  
    
@@ -484,6 +509,10 @@ while($true)
                 }
 
                 $_.New = $false
+                $_.Hashrate_Gathered = $true 
+                Write-Host "Stats '"$_.Algorithms"' -> is saving hashrates" -foregroundcolor "Yellow"
+                 
+                }
             }
         }
 
