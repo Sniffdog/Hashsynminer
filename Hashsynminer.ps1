@@ -101,25 +101,6 @@
     [Int]$Delay = 1 #seconds before opening each miner
 )
 
-[System.Reflection.Assembly]::LoadWithPartialName("System.Windows.Forms")
-
-$caption = "I sniff an Italian..................."
-$message = "Do you want to stop the dynamic benchmark bullshit?"
-$yesNoButtons = 4
-
-
-if ([System.Windows.Forms.MessageBox]::Show($message, $caption, $yesNoButtons) -eq "NO") {
-write-host "Good Benchmarking commencing"
-$StatsInterval = 1
-
-}
-else {
-write-host "Sniffdog howls and stop the benchmarking"
-$StatsInterval = 1000
-}
-
-
-
 
 Set-Location (Split-Path $script:MyInvocation.MyCommand.Path)
 
