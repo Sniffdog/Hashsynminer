@@ -24,7 +24,7 @@ Very Important... SplitSniffEWBF (equihash) must use quotation without commas fo
 
 2) -Passwordcurrency BTC
 
-2) Register at Multipool and input your -Username and -Workername to Hashsynminer_start.bat. You must also setup at Miningpoolhub to autoswitch to Bitcoin and place your Bitcoin address in bitcoin tab
+2) Register at MiningPoolHub and input your -Username and -Workername to Hashsynminer_start.bat. You must also setup at Miningpoolhub to autoswitch to Bitcoin and place your Bitcoin address in bitcoin tab
 
 3) -RigName the name you want to call your mining at Ahashpool.com, Hashrefinery.com, and Zpool.ca
 
