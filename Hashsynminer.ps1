@@ -28,7 +28,7 @@
     [Parameter(Mandatory=$false)]
     [Int]$Interval = 90, #seconds before reading hash rate from miners
     [Parameter(Mandatory=$false)] 
-    [Int]$StatsInterval = $null, #seconds of current active to gather hashrate if not gathered yet 
+    [Int]$StatsInterval = 1, #seconds of current active to gather hashrate if not gathered yet 
     [Parameter(Mandatory=$false)]
     [String]$Location = "US", #europe/us/asia
     [Parameter(Mandatory=$false)]
