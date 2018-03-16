@@ -377,7 +377,6 @@ while($true)
         @{Label = "Command"; Expression={"$($_.Path.TrimStart((Convert-Path ".\"))) $($_.Arguments)"}}
     ) | Out-Host
 
-    Write-Host "1BTC = " $Rates.$Currency "$Currency" -foregroundcolor "Yellow"
     $Miners | Where {$_.Profit -ge 1E-5 -or $_.Profit -eq $null} | Sort -Descending Type,Profit | Format-Table -GroupBy Type (
         @{Label = "Miner"; Expression={$_.Name}}, 
         @{Label = "Algorithm"; Expression={$_.HashRates.PSObject.Properties.Name}}, 
@@ -454,6 +453,8 @@ while($true)
     [GC]::Collect()
 
     Write-Host "1BTC = " $Rates.$Currency "$Currency" -foregroundcolor "Yellow"
+    Write-Host -ForegroundColor Yellow "Last Refresh: $(Get-Date)"
+
     #Do nothing for a set Interval to allow miner to run 
      If ([int]$Interval -gt [int]$CheckMinerInterval) { 
          Sleep ($Interval-$CheckMinerInterval) 
