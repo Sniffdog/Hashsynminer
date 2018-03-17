@@ -28,7 +28,7 @@ $zergpool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | Se
 		$beginConnect = $client.BeginConnect("mine.zergpool.com",$zergpool_Request.$_.port,$requestCallback,$state)
 		Start-Sleep -milli 1000
 		if ($client.Connected) { 
-			Write-Host "$Name host selected.."  
+			#Write-Host "$Name host selected.."  
 		} 
 		else { 
 			#Write-Host "EU host selected as unable to connect to $Name."  
