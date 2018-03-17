@@ -1,30 +1,28 @@
 ﻿. .\Include.ps1
 
 $Name = Get-Item $MyInvocation.MyCommand.Path | Select-Object -ExpandProperty BaseName 
+
+$zergpool_Request = [PSCustomObject]@{}  
  
- 
- $zergpool_Request = [PSCustomObject]@{} 
- 
- 
- try { 
-     $Zergpool_Request = Invoke-RestMethod "http://api.zergpool.com:8080/api/status" -UseBasicParsing -TimeoutSec 10 -ErrorAction Stop 
-     #$ZergpoolCoins_Request = Invoke-RestMethod "http://api.zergpool.com:8080/api/currencies" -UseBasicParsing -TimeoutSec 10 -ErrorAction Stop 
- } 
- catch { 
-     Write-Warning "Sniffdog howled at ($Name) for a failed API check. " 
-     return 
- }
- 
- if (($zergpool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | Measure-Object Name).Count -le 1) { 
-     Write-Warning "SniffDog sniffed near ($Name) but ($Name) Pool API had no scent. " 
-     return 
- } 
+try { 
+ $Zergpool_Request = Invoke-RestMethod "http://api.zergpool.com:8080/api/status" -UseBasicParsing -TimeoutSec 10 -ErrorAction Stop 
+ #$ZergpoolCoins_Request = Invoke-RestMethod "http://api.zergpool.com:8080/api/currencies" -UseBasicParsing -TimeoutSec 10 -ErrorAction Stop 
+} 
+catch { 
+ Write-Warning "Sniffdog howled at ($Name) for a failed API check. " 
+ return 
+}
+
+if (($zergpool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | Measure-Object Name).Count -le 1) { 
+ Write-Warning "SniffDog sniffed near ($Name) but ($Name) Pool API had no scent. " 
+ return 
+} 
   
 $Location = "US"
 $zergpool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | Select -ExpandProperty Name | foreach {
 #$zergpool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | Select-Object -ExpandProperty Name | Where-Object {$zergpool_Request.$_.hashrate -gt 0} | foreach {
 	$zergpool_Host = "mine.zergpool.com"
-	 try { 
+	try { 
 		$requestCallback = $state = $null
 		$client = New-Object System.Net.Sockets.TcpClient
 		$beginConnect = $client.BeginConnect("mine.zergpool.com",$zergpool_Request.$_.port,$requestCallback,$state)
@@ -33,15 +31,16 @@ $zergpool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | Se
 			Write-Host "$Name host selected.."  
 		} 
 		else { 
-			Write-Host "EU host selected as unable to connect to $Name."  
+			#Write-Host "EU host selected as unable to connect to $Name."  
 			$zergpool_Host = "europe.mine.zergpool.com" 
 		}
 		$client.Close()
-	 } 
-	 catch { 
-		 Write-Warning "Error when do tcp test. directed to EU host. " 
-		 $zergpool_Host = "europe.mine.zergpool.com"
-	 }
+	} 
+	catch { 
+		#Write-Warning "Error when do tcp test. directed to EU host. " 
+		$zergpool_Host = "europe.mine.zergpool.com"
+	}
+
     $zergpool_Port = $zergpool_Request.$_.port
     $zergpool_Algorithm = Get-Algorithm $zergpool_Request.$_.name
     $zergpool_Coin = $zergpool_Request.$_.coins
@@ -64,10 +63,8 @@ $zergpool_Request | Get-Member -MemberType NoteProperty -ErrorAction Ignore | Se
 		"x11"{$Divisor *= 1000}
 		"scrypt"{$Divisor *= 1000}
 		"qubit"{$Divisor *= 1000}
-		"yescrypt"{$Divisor /= 1000}
-        		
+		"yescrypt"{$Divisor /= 1000}	
     }
-
 			
     if((Get-Stat -Name "$($Name)_$($zergpool_Algorithm)_Profit") -eq $null){$Stat = Set-Stat -Name "$($Name)_$($zergpool_Algorithm)_Profit" -Value ([Double]$zergpool_Request.$_.estimate_last24h/$Divisor*(1-($zergpool_request.$_.fees/100)))}
     else{$Stat = Set-Stat -Name "$($Name)_$($zergpool_Algorithm)_Profit" -Value ([Double]$zergpool_Request.$_.estimate_current/$Divisor *(1-($zergpool_request.$_.fees/100)))}
