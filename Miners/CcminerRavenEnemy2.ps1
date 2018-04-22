@@ -7,7 +7,7 @@ $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 
 $Algorithms = [PSCustomObject]@{
     
-    X17 = 'x17'
+    #X17 = 'x17'
     X16r = 'x16r'
     X16s = 'x16s'
     Phi = 'phi'
