@@ -1,7 +1,7 @@
 . .\Include.ps1
 
 $Path = '.\Bin\NVIDIA-Enemy5\ccminer.exe'
-$Uri = 'https://mega.nz/#!JDAm3TJb!BMQPYJz5_nmkZEZB0UUwWicopIdgnHG82Ht5buWxZxo'
+$Uri = 'https://mega.nz/#!5WACFRTT!tV1vUsFdBIDqCzBrcMoXVR2G9YHD6xqct5QB2nBiuzM'
 
 $Name = (Get-Item $script:MyInvocation.MyCommand.Path).BaseName
 
@@ -9,12 +9,18 @@ $Algorithms = [PSCustomObject]@{
     
     X17 = 'x17'
     X16r = 'x16r'
+    X16s = 'x16s'
+    Phi = 'phi'
+    Bitcore = 'bitcore'
 }
 
 $Optimizations = [PSCustomObject]@{
    
     X17 = ' -d $SplitSniffCC5'
     X16r = ' -d $SplitSniffCC5'
+    X16s = ' -d $SplitSniffCC5'
+    Phi = ' -d $SplitSniffCC5'
+    Bitcore = ' -d $SplitSniffCC5'
     
 }
 
