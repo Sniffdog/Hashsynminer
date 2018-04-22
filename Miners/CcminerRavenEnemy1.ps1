@@ -9,6 +9,7 @@ $Algorithms = [PSCustomObject]@{
     
     X17 = 'x17'
     X16r = 'x16r'
+    X16s = 'x16s'
     Phi = 'phi'
     Bitcore = 'bitcore'
 }
@@ -17,6 +18,7 @@ $Optimizations = [PSCustomObject]@{
    
     X17 = ' -d $SplitSniffCC1'
     X16r = ' -d $SplitSniffCC1'
+    X16s = ' -d $SplitSniffCC1'
     Phi = ' -d $SplitSniffCC1'
     Bitcore = ' -d $SplitSniffCC1'
     
